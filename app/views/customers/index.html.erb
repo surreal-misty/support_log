@@ -1,0 +1,21 @@
+<main class="customers-page">
+  <div class="page-header">
+    <p class="eyebrow">CUSTOMERS / 01</p>
+    <h1>顧客一覧</h1>
+  </div>
+
+  <div class="customer-list">
+    <% @customers.each do |customer| %>
+      <%= link_to customer_path(customer), class: "customer-card" do %>
+        <div>
+          <p class="customer-name"><%= customer.name %></p>
+          <p class="customer-info"><%= customer.phone %></p>
+        </div>
+
+        <span aria-hidden="true">→</span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to "← ホーム", root_path, class: "back-link" %>
+</main>

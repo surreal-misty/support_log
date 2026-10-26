@@ -1,0 +1,35 @@
+<div class="page-header">
+  <p class="eyebrow">NEW HISTORY / 01</p>
+  <h1>対応履歴を追加</h1>
+</div>
+
+<div class="form-container">
+  <%= form_with model: @interaction do |form| %>
+
+    <div class="form-group">
+      <%= form.label :customer_id, "顧客" %>
+      <%= form.select :customer_id,
+          @customers.map { |customer| ["#{customer.name} / #{customer.phone} / #{customer.email}", customer.id] } %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :interaction_type, "対応区分" %>
+      <%= form.select :interaction_type, ["受電", "架電"] %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :history, "会話・対応内容" %>
+      <%= form.text_area :history, rows: 8 %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :occurred_at, "対応日時" %>
+      <%= form.datetime_local_field :occurred_at %>
+    </div>
+
+    <%= form.submit "保存", class: "submit-button" %>
+
+  <% end %>
+</div>
+
+<%= link_to "← 顧客一覧", customers_path, class: "back-link" %>

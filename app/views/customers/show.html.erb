@@ -1,0 +1,45 @@
+<main class="customer-detail-page">
+  <div class="page-header">
+    <p class="eyebrow">CUSTOMER / 01</p>
+    <h1><%= @customer.name %></h1>
+
+    <div class="customer-contact">
+      <p><%= @customer.phone %></p>
+      <p><%= @customer.email %></p>
+    </div>
+  </div>
+
+  <div class="history-header">
+    <h2>対応履歴</h2>
+    <%= link_to "＋ 履歴を追加", new_interaction_path %>
+  </div>
+
+  <div class="history-list">
+    <% if @interactions.any? %>
+      <% @interactions.each do |interaction| %>
+        <div class="history-card">
+          <div class="history-meta">
+            <span>
+              <%= interaction.occurred_at&.strftime("%Y/%m/%d %H:%M") %>
+            </span>
+            <span><%= interaction.interaction_type %></span>
+          </div>
+
+          <div class="history-body">
+            <%= simple_format(interaction.history) %>
+          </div>
+
+          <%= button_to "削除",
+              interaction_path(interaction),
+              method: :delete,
+              data: { turbo_confirm: "この対応履歴を削除しますか？" },
+              class: "delete-button" %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>対応履歴はありません。</p>
+    <% end %>
+  </div>
+
+  <%= link_to "← 顧客一覧", customers_path, class: "back-link" %>
+</main>

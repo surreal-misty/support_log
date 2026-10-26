@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interaction_type: MyString
+  history: MyText
+  occurred_at: 2026-10-25 23:37:26
+  customer: one
+  user: one
+
+two:
+  interaction_type: MyString
+  history: MyText
+  occurred_at: 2026-10-25 23:37:26
+  customer: two
+  user: two

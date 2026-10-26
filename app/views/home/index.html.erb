@@ -1,0 +1,29 @@
+<% if user_signed_in? %>
+  <div class="session-bar">
+    <p class="session-status"><span class="session-indicator" aria-hidden="true"></span>ログイン中</p>
+    <%= button_to "ログアウト",
+          destroy_user_session_path,
+          method: :delete,
+          class: "logout-button" %>
+  </div>
+<% end %>
+
+<section class="hero">
+  <p class="eyebrow">CALL LOG / 01</p>
+
+  <h1>電話ログ</h1>
+
+  <p class="description">
+    電話の受電・架電履歴を<br>
+    シンプルに残すためのアプリです。
+  </p>
+
+  <div class="actions">
+    <%= button_to "ゲストログイン", guest_login_path, method: :post %>
+
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+  </div>
+
+  <%= link_to "顧客一覧 →", customers_path, class: "customer-link" %>
+</section>
