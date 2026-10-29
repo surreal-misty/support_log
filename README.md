@@ -1,4 +1,4 @@
-# Support Log
+# 電話ログ（CALL LOG / 01）
 
 ## アプリ概要
 
